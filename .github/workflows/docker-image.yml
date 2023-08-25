@@ -24,4 +24,6 @@ jobs:
       run: docker build . --file Dockerfile --tag ex-docker:$(date +%s)
 
     - name: Docker Push
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
       run: docker push $DOCKER_USER/ex-docker
